@@ -1,6 +1,10 @@
 task :default do
     sh 'rake --task -s'
 end
+
+task :push do
+   exec "git push origin master" 
+end
 namespace :ipcs do
     desc "clean share memory that unused"
     task :sm_clean do
