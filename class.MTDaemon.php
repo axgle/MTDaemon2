@@ -260,7 +260,7 @@ abstract class MTDaemon {
 	protected function _postrun() {
 		global $argv;
 		MTLog::getInstance()->debug($argv[0].': _postrun() called.');
-
+		pcntl_wait(&$status);
 		// Clean up all UNIX semaphore data
 		shm_remove ($this->shared_data);
 		sem_remove ($this->mutex);
